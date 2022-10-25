@@ -7,3 +7,4 @@ If i is less than the word1 length, then append the word1 length to s1
 Similarly do for the other word2
 Now convert the array s1 into strings and check if they are equal.
 END
+
