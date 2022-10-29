@@ -1,33 +1,20 @@
 class Solution {
     public int earliestFullBloom(int[] plantTime, int[] growTime) {
-        List<Seed> plant= new ArrayList<>();
-            for(int i=0; i<plantTime.length; i++){
-                plant.add(new Seed(plantTime[i], growTime[i]));
-            }
-        
-        Collections.sort(plant, (a,b)->(b.growTime- a.growTime));
-        
-        int time=0;
-        int max=0;
-        
-        for(int i=0; i<plantTime.length; i++){
-            time+=plant.get(i).plantTime;
-            max= Math.max(max, time+plant.get(i).growTime);
-        }
-        return max;
-        
-        
-    }
-        private class Seed{
-            int plantTime;
-            int growTime;
+        int n= plantTime.length;
+        int [][] times= new int[n][2];
+        for(int i=0; i<n; i++){
+            times[i][0]= plantTime[i];
+            times[i][1]= growTime[i];
             
-            public Seed(int p, int g){
-                this.plantTime= p;
-                this.growTime= g;
-            }
         }
         
+        Arrays.sort(times, (a,b)-> b[1]-a[1]);
         
-        
+        int res=0, curStart=0;
+        for(int i=0; i<n; i++){
+            res= Math.max(res, curStart+ times[i][0]+ times[i][1]);
+            curStart= curStart+ times[i][0];
+        }
+        return res;
     }
+}
