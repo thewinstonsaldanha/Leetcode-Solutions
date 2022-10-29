@@ -1,28 +1,20 @@
 class Solution {
     public String removeDigit(String number, char digit) {
-        for(int i=1; i<number.length(); i++){
-            if(number.charAt(i-1)== digit ){
-                if(number.charAt(i)> number.charAt(i-1)){
-                    return (number.substring(0, i-1)+ number.substring(i));
-                    
+        int ind=-1;
+        
+        for(int i=0; i<number.length(); i++){
+            if(number.charAt(i)== digit){
+                ind=i;
+                if(i<number.length()-1 && number.charAt(i+1)> digit){
+                    break;
                 }
             }
         }
         
         
-        int lastIndex= number.lastIndexOf(digit);
-        return (number.substring(0, lastIndex)+ number.substring(lastIndex+1));
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            if(ind== number.length()-1){
+                return number.substring(0, ind);
+            } else return number.substring(0, ind)+ number.substring(ind+1); 
         
     }
 }
