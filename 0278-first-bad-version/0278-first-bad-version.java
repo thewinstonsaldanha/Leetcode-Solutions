@@ -9,9 +9,9 @@ public class Solution extends VersionControl {
         while(left<right){
             int mid= left+ (right-left)/2;
             if(!isBadVersion(mid)){
-                left= mid+1;
+                left= mid+1;  //Discard left half of the array
             } else
-            right= mid;
+            right= mid; //Discard right half of the array
         }
         return left;
         
