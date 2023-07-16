@@ -10,15 +10,16 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-        ListNode fast= head;
-        ListNode slow= head;
+        ListNode Hare= head;
+        ListNode Tortoise= head;
         
-        while(fast!= null && fast.next!= null) {
-            slow= slow.next;
-           fast= fast.next.next;
-       
+        while(Hare!= null && Hare.next!= null){
+            Tortoise= Tortoise.next;
+            Hare= Hare.next.next;
         }
-        return slow;
+         
+        return Tortoise;
+        
         
     }
 }
