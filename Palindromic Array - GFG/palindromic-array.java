@@ -25,14 +25,17 @@ class GfG
            {
                   //add code here.
                   for(int i=0; i<n; i++){
-                      int num= a[i];
-                      int rev=0;
-                      while(num>0){
-                          rev= rev*10+ num%10;
-                          num/=10;
-                      }
-                      if(rev!= a[i]){
-                          return 0;
+                      String numstr= Integer.toString(a[i]);
+                      int start=0;
+                      int end= numstr.length()-1;
+                      
+                      while(start<end){
+                          if(numstr.charAt(start)!= numstr.charAt(end)){
+                              return 0;
+                              
+                          }
+                          start++;
+                          end--;
                       }
                   }
                   return 1;
